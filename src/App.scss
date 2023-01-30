@@ -59,3 +59,43 @@ body {
 
   }
 }
+
+.quiz {
+
+  &__question {
+    color: #293264;
+    font-family: 'Karla', sans-serif;
+
+  }
+
+  &__answer-container {
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &__answer {
+    color: #293264;
+    font-family: 'Inter', sans-serif;
+    list-style-type: none;
+    display: inline-block;
+    margin: 3px;
+    border: 1px solid #293264;
+    padding: 5px 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__answer:hover {
+    background-color: #D6DBF5;
+    border: 1px solid #D6DBF5;
+  }
+}
+
+.quiz-page-container {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

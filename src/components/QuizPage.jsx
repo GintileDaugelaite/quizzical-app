@@ -1,7 +1,12 @@
 import React from "react";
+import Quiz from "./Quiz";
 
 const QuizPage = () => {
-  return <h1>bla</h1>;
+  return(
+    <section className="quiz-page-container">
+    <Quiz />
+    </section>
+  )
 };
 
 export default QuizPage;
