@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Karla&display=swap');
+
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #F5F7FB;
+  color: #4D5B9E;
+  margin: 0 auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.quiz-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  align-items: center;
+  height: 500px;
+  font-family: 'Karla', sans-serif;
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  &__title {
+    margin: 0;
+    font-weight: 700;
   }
-  to {
-    transform: rotate(360deg);
+
+  &__description {
+    margin-bottom: 30px;
+  }
+
+  &__btn {
+    background-color: #4D5B9E;
+    color: #F5F7FB;
+    padding: 15px;
+    width: 190px;
+    border-radius: 15px;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  &__btn:hover {
+    background-color: #343d6b;
+  }
+
+  &__blue-blob {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 20%;
+  }
+
+  &__yellow-blob {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20%;
+
   }
 }
