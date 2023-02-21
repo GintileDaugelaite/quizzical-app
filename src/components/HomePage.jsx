@@ -11,8 +11,8 @@ const HomePage = () => {
       <Link to="/quiz">
         <button className="quiz-container__btn">Start quiz</button>
       </Link>
-      <img className="quiz-container__blue-blob" src={Blob} alt=""/>
-      <img className="quiz-container__yellow-blob" src={Blob2} alt=""/>
+      {/* <img className="quiz-container__blue-blob" src={Blob} alt=""/>
+      <img className="quiz-container__yellow-blob" src={Blob2} alt=""/> */}
     </div>
 
   );

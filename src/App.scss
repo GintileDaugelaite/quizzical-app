@@ -1,13 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Karla&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Karla&display=swap");
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: #F5F7FB;
-  color: #4D5B9E;
+  background-color: #f5f7fb;
+  color: #4d5b9e;
   margin: 0 auto;
+  height: 100%;
 }
 
 .quiz-container {
@@ -15,8 +16,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: "Karla", sans-serif;
   height: 500px;
-  font-family: 'Karla', sans-serif;
 
   &__title {
     margin: 0;
@@ -28,13 +29,13 @@ body {
   }
 
   &__btn {
-    background-color: #4D5B9E;
-    color: #F5F7FB;
+    background-color: #4d5b9e;
+    color: #f5f7fb;
     padding: 15px;
     width: 190px;
     border-radius: 15px;
     border: none;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 500;
     font-size: 16px;
     cursor: pointer;
@@ -56,29 +57,43 @@ body {
     right: 0;
     top: 0;
     width: 20%;
-
   }
 }
 
 .quiz {
+  border: 1px solid #dbdef0;
+  margin-top: 15%;
+  // width: 100%;
+  // min-height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  &__question-number {
+    color: #293264;
+    font-family: "Inter", sans-serif;
+  }
 
   &__question {
     color: #293264;
-    font-family: 'Karla', sans-serif;
-
+    font-family: "Karla", sans-serif;
+    word-break: break-word;
+    text-align: center;
+    min-height: 56px;
   }
 
   &__answer-container {
     padding: 0;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
   &__answer {
     color: #293264;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     list-style-type: none;
-    display: inline-block;
     margin: 3px;
     border: 1px solid #293264;
     padding: 5px 20px;
@@ -88,14 +103,121 @@ body {
   }
 
   &__answer:hover {
-    background-color: #D6DBF5;
-    border: 1px solid #D6DBF5;
+    background-color: #d6dbf5;
+    border: 1px solid #d6dbf5;
+  }
+
+  &__answer-selected {
+    background-color: #d6dbf5;
+    border: 1px solid #d6dbf5;
+    font-family: "Inter", sans-serif;
+    list-style-type: none;
+    margin: 3px;
+    padding: 5px 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  // &__answer-correct {
+  //   background-color: green;
+  //   border: 1px solid #d6dbf5;
+  //   font-family: "Inter", sans-serif;
+  //   list-style-type: none;
+  //   margin: 3px;
+  //   padding: 5px 20px;
+  //   border-radius: 10px;
+  //   text-align: center;
+  //   cursor: pointer;
+  // }
+
+  // &__answer-incorrect {
+  //   background-color: crimson;
+  //   border: 1px solid #d6dbf5;
+  //   font-family: "Inter", sans-serif;
+  //   list-style-type: none;
+  //   margin: 3px;
+  //   padding: 5px 20px;
+  //   border-radius: 10px;
+  //   text-align: center;
+  //   cursor: pointer;
+  // }
+
+  // &__answers-btn {
+  //   background-color: #4d5b9e;
+  //   color: #f5f7fb;
+  //   padding: 15px;
+  //   width: 190px;
+  //   border-radius: 15px;
+  //   border: none;
+  //   font-family: "Inter", sans-serif;
+  //   font-weight: 500;
+  //   font-size: 16px;
+  //   cursor: pointer;
+  //   margin: 30px 0;
+  // }
+
+  // &__answers-btn:hover {
+  //   background-color: #343d6b;
+  // }
+
+  &__next-button {
+    background-color: #4d5b9e;
+    color: #f5f7fb;
+    padding: 10px 30px;
+    border-radius: 15px;
+    border: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 30px 0;
+    align-self: flex-end;
+  }
+
+  &__next-button:hover {
+    background-color: #343d6b;
+  }
+
+  &__results {
+    font-family: "Karla", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__replay-button {
+    background-color: #4d5b9e;
+    color: #f5f7fb;
+    padding: 10px 30px;
+    border-radius: 15px;
+    border: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 30px 0;
   }
 }
 
-.quiz-page-container {
-  height: 500px;
+.quiz-page {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+
+  &__wrapper {
+    width: 50%;
+  }
+  &__bottom-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  &__results {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    color: #293264;
+  }
 }
