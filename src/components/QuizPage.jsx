@@ -3,7 +3,6 @@ import QuizCard from "./QuizCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-
 const QuizPage = () => {
   const [quizData, setQuizData] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -17,32 +16,30 @@ const QuizPage = () => {
         setQuizData(res.data.results);
         setCurrentQuestionIndex(0);
         callback();
+        console.log(res.data.results);
       })
       .catch((error) => console.error(error));
   };
 
   useEffect(() => {
     fetchQuizData(() => {});
-  }, [])
+  }, []);
 
-const currentQuestion = quizData.length > 0 ? quizData[currentQuestionIndex] : null;
-
+  const currentQuestion =
+    quizData.length > 0 ? quizData[currentQuestionIndex] : null;
 
   return (
     <section className="quiz-page">
       <div className="quiz-page__wrapper">
         {currentQuestion && (
           <QuizCard
-          quizData={quizData}
-          setQuizData={setQuizData}
-          question={currentQuestion.question}
-          incorrect_answers={currentQuestion.incorrect_answers}
-          correct_answer={currentQuestion.correct_answer}
-          setCurrentQuestionIndex={setCurrentQuestionIndex}
-          currentQuestionIndex={currentQuestionIndex}
-          quizDataLength={quizData.length}
-          currentQuestion={currentQuestion}
-          fetchQuizData={fetchQuizData}
+            question={currentQuestion.question}
+            incorrect_answers={currentQuestion.incorrect_answers}
+            correct_answer={currentQuestion.correct_answer}
+            setCurrentQuestionIndex={setCurrentQuestionIndex}
+            currentQuestionIndex={currentQuestionIndex}
+            quizDataLength={quizData.length}
+            fetchQuizData={fetchQuizData}
           />
         )}
       </div>

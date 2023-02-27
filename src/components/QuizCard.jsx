@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import he from "he";
 
 const QuizCard = ({
   question,
@@ -34,7 +35,6 @@ const QuizCard = ({
     } else {
       setShowResult(true);
       setCurrentQuestionIndex(0);
-      console.log("what");
     }
     console.log(result);
   };
@@ -42,6 +42,8 @@ const QuizCard = ({
   const handleSelect = (answer, index) => {
     //answer shows the selected answer (in text), index shows selected answer's index (for css purpose, to change the class as selected)
     setSelectedAnswerIndex(index);
+    // setSelectedAnswer(answer)
+    
 
     if (answer === correct_answer) {
       console.log("yay");
@@ -68,12 +70,7 @@ const QuizCard = ({
           <div className="quiz__question-number">
             Question: {currentQuestionIndex + 1} out of {quizDataLength}
           </div>
-          <h2 className="quiz__question">
-            {question
-              .replaceAll("&quot;", '"')
-              .replaceAll("&amp;", "&")
-              .replaceAll("&#039;s", "'s")}
-          </h2>
+          <h2 className="quiz__question">{he.decode(question)}</h2>
           <ul className="quiz__answer-container">
             {allAnswers.map((answer, i) => (
               <li
@@ -83,11 +80,8 @@ const QuizCard = ({
                 onClick={() => handleSelect(answer, i)}
                 key={answer}
               >
-                {answer
-                  .replaceAll("&#039;s", "'s")
-                  .replaceAll("&auml;", "ä")
-                  .replaceAll("&aring;", "å")
-                  .replaceAll(/&#039;/g, "'")}
+                {/*this library is used to decode some of the symbols that are coming from API */}
+                {he.decode(answer)}
               </li>
             ))}
           </ul>
@@ -113,11 +107,21 @@ const QuizCard = ({
 export default QuizCard;
 
 // ${
-//     isCorrect === true && selectedIndex === i
-//       ? "quiz__answer-correct"
-//       : ""
-//   } ${
-//     isCorrect === false && selectedIndex === i
-//       ? "quiz__answer-incorrect"
-//       : ""
-//   }
+//   selectedAnswer === true && selectedAnswerIndex === i
+//     ? "quiz__answer-correct"
+//     : ""
+// } ${
+//   selectedAnswer === false && selectedAnswerIndex === i
+//     ? "quiz__answer-incorrect"
+//     : ""
+// }
+
+// ${
+//   selectedAnswer
+//      ? "quiz__answer-correct"
+//      : ""
+//  } ${
+//    !selectedAnswer
+//      ? "quiz__answer-incorrect"
+//      : ""
+//  }
