@@ -36,7 +36,6 @@ const QuizCard = ({
       setShowResult(true);
       setCurrentQuestionIndex(0);
     }
-    console.log(result);
   };
 
   const handleSelect = (answer, index) => {
