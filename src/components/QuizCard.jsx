@@ -40,16 +40,12 @@ const QuizCard = ({
   };
 
   const handleSelect = (answer, index) => {
-    //answer shows the selected answer (in text), index shows selected answer's index (for css purpose, to change the class as selected)
+    //answer shows the selected answer (in text), index shows selected answer's index
     setSelectedAnswerIndex(index);
-    // setSelectedAnswer(answer)
-    
 
     if (answer === correct_answer) {
-      console.log("yay");
       setSelectedAnswer(true);
     } else {
-      console.log("nay");
       setSelectedAnswer(false);
     }
   };
@@ -105,23 +101,3 @@ const QuizCard = ({
 };
 
 export default QuizCard;
-
-// ${
-//   selectedAnswer === true && selectedAnswerIndex === i
-//     ? "quiz__answer-correct"
-//     : ""
-// } ${
-//   selectedAnswer === false && selectedAnswerIndex === i
-//     ? "quiz__answer-incorrect"
-//     : ""
-// }
-
-// ${
-//   selectedAnswer
-//      ? "quiz__answer-correct"
-//      : ""
-//  } ${
-//    !selectedAnswer
-//      ? "quiz__answer-incorrect"
-//      : ""
-//  }

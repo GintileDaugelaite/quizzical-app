@@ -16,7 +16,6 @@ const QuizPage = () => {
         setQuizData(res.data.results);
         setCurrentQuestionIndex(0);
         callback();
-        console.log(res.data.results);
       })
       .catch((error) => console.error(error));
   };
