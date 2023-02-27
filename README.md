@@ -2,6 +2,7 @@
 
 A fun quiz to test your general knowledge skills. Made with React, SCSS and JavaScript.
 
+
 ## Installation and Setup Instructions
 
 Runs the app in the development mode.\
