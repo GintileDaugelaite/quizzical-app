@@ -1,60 +1,47 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter&family=Karla&display=swap");
-
-@mixin for-mobile {
-  @media (max-width: 480px) {
-    @content;
-  }
-}
-
-@mixin for-tablet {
-  @media (max-width: 780px) {
-    @content;
-  }
-}
+@import "./styles/mixins";
+@import "./styles/variables";
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: #f5f7fb;
-  color: #4d5b9e;
+  background-color: $lighter-blue;
   margin: 0 auto;
   height: 100%;
 }
 
 .quiz-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: "Karla", sans-serif;
+  @include regular-flexbox(center, center);
+  font-family: $karla-font;
   height: 500px;
 
   &__title {
     margin: 0;
     font-weight: 700;
+    color: $purple;
   }
 
   &__description {
     margin-bottom: 30px;
+    color: $purple;
   }
 
   &__btn {
-    background-color: #4d5b9e;
-    color: #f5f7fb;
+    background-color: $purple;
+    color: $lighter-blue;
     padding: 15px;
     width: 190px;
-    border-radius: 15px;
+    border-radius: $border-radius-15;
     border: none;
-    font-family: "Inter", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
+    font-family: $inter-font;
+    font-weight: $font-weight-regular;
+    font-size: $font-size-regular;
     cursor: pointer;
   }
 
   &__btn:hover {
-    background-color: #343d6b;
+    background-color: $navy-blue;
   }
 
   &__blue-blob {
@@ -73,36 +60,26 @@ body {
 }
 
 .quiz {
-  border: 1px solid #dbdef0;
-  // margin-top: 15%;
-  // width: 100%;
-  // min-height: 100%;
+  border: $regular-border $light-blue;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @include regular-flexbox(center, inherit);
   min-height: 495px;
-  // width: 450px;
-  // height: 360px;
-
 
   &__question-number {
-    color: #293264;
-    font-family: "Inter", sans-serif;
+    color: $navy-blue;
+    font-family: $inter-font;
 
     @include for-mobile {
-      font-size: 14px;
-  }
+      font-size: $font-size-small;
+    }
   }
 
   &__question {
-    color: #293264;
-    font-family: "Karla", sans-serif;
+    @include regular-flexbox(center, center);
+    color: $navy-blue;
+    font-family: $karla-font;
     word-break: break-word;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 120px;
 
     @include for-tablet {
@@ -112,53 +89,51 @@ body {
 
     @include for-mobile {
       min-height: 90px;
-      font-size: 16px;
-  }
+      font-size: $font-size-regular;
+    }
   }
 
   &__answer-container {
+    @include regular-flexbox(flex-start, stretch);
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     min-height: 230px;
 
-  //   @include for-mobile {
-  //     justify-content: center;
-  //     flex-direction: row;
-  //     flex-wrap: wrap;
-  // }
+    //   @include for-mobile {
+    //     justify-content: center;
+    //     flex-direction: row;
+    //     flex-wrap: wrap;
+    // }
   }
 
   &__answer {
-    color: #293264;
-    font-family: "Inter", sans-serif;
+    color: $navy-blue;
+    font-family: $inter-font;
     list-style-type: none;
     margin: 3px;
-    border: 1px solid #293264;
+    border: $regular-border $navy-blue;
     padding: 5px 0;
-    border-radius: 10px;
+    border-radius: $border-radius-10;
     text-align: center;
     cursor: pointer;
 
     @include for-mobile {
-      font-size: 14px;
-  }
+      font-size: $font-size-small;
+    }
   }
 
   &__answer:hover {
-    background-color: #d6dbf5;
-    border: 1px solid #d6dbf5;
+    background-color: $light-blue;
+    border: $regular-border $light-blue;
   }
 
   &__answer-selected {
-    background-color: #d6dbf5;
-    border: 1px solid #d6dbf5;
-    font-family: "Inter", sans-serif;
+    background-color: $light-blue;
+    border: $regular-border $light-blue;
+    font-family: $inter-font;
     list-style-type: none;
     margin: 3px;
     padding: 5px 20px;
-    border-radius: 10px;
+    border-radius: $border-radius-10;
     text-align: center;
     cursor: pointer;
   }
@@ -187,90 +162,55 @@ body {
   //   cursor: pointer;
   // }
 
-  // &__answers-btn {
-  //   background-color: #4d5b9e;
-  //   color: #f5f7fb;
-  //   padding: 15px;
-  //   width: 190px;
-  //   border-radius: 15px;
-  //   border: none;
-  //   font-family: "Inter", sans-serif;
-  //   font-weight: 500;
-  //   font-size: 16px;
-  //   cursor: pointer;
-  //   margin: 30px 0;
-  // }
-
-  // &__answers-btn:hover {
-  //   background-color: #343d6b;
-  // }
-
   &__next-button {
-    background-color: #4d5b9e;
-    color: #f5f7fb;
+    background-color: $purple;
+    color: $lighter-blue;
+    border-radius: $border-radius-15;
+    font-family: $inter-font;
     padding: 10px 30px;
-    border-radius: 15px;
     border: none;
-    font-family: "Inter", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: $font-weight-regular;
+    font-size: $font-size-regular;
     cursor: pointer;
     margin: 30px 0;
     align-self: flex-end;
-    // position: fixed;
-    // bottom: 7%;
 
     @include for-mobile {
       align-self: auto;
-      font-size: 14px;
-  }
+      font-size: $font-size-small;
+    }
   }
 
-  &__next-button:hover {
-    background-color: #343d6b;
+  &__next-button:hover,
+  &__replay-button:hover {
+    background-color: $navy-blue;
   }
 
   &__results {
-    font-family: "Karla", sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include regular-flexbox(center, center);
+    font-family: $karla-font;
+    color: $purple;
     text-align: center;
   }
   &__replay-button {
-    background-color: #4d5b9e;
-    color: #f5f7fb;
+    background-color: $purple;
+    color: $lighter-blue;
     padding: 10px 30px;
-    border-radius: 15px;
+    border-radius: $border-radius-15;
     border: none;
-    font-family: "Inter", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
+    font-family: $inter-font;
+    font-weight: $font-weight-regular;
+    font-size: $font-size-regular;
     cursor: pointer;
     margin: 30px 0;
   }
 }
 
 .quiz-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include regular-flexbox(center, center);
   height: 100vh;
 
   &__wrapper {
     width: 50vw;
-  }
-  &__bottom-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-  &__results {
-    font-family: "Inter", sans-serif;
-    font-weight: 700;
-    color: #293264;
   }
 }
