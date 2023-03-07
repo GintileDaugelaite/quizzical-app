@@ -38,10 +38,10 @@ body {
     font-weight: $font-weight-regular;
     font-size: $font-size-regular;
     cursor: pointer;
-  }
 
-  &__btn:hover {
-    background-color: $navy-blue;
+    &:hover {
+      background-color: $navy-blue;
+    }
   }
 
   &__blue-blob {
@@ -119,11 +119,11 @@ body {
     @include for-mobile {
       font-size: $font-size-small;
     }
-  }
 
-  &__answer:hover {
-    background-color: $light-blue;
-    border: $regular-border $light-blue;
+    &:hover {
+      background-color: $light-blue;
+      border: $regular-border $light-blue;
+    }
   }
 
   &__answer-selected {
@@ -179,11 +179,9 @@ body {
       align-self: auto;
       font-size: $font-size-small;
     }
-  }
-
-  &__next-button:hover,
-  &__replay-button:hover {
-    background-color: $navy-blue;
+    &:hover {
+      background-color: $navy-blue;
+    }
   }
 
   &__results {
@@ -203,6 +201,10 @@ body {
     font-size: $font-size-regular;
     cursor: pointer;
     margin: 30px 0;
+
+    &:hover {
+      background-color: $navy-blue;
+    }
   }
 }
 

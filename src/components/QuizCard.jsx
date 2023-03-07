@@ -88,7 +88,7 @@ const QuizCard = ({
         <div className="quiz__results">
           <h1 className="quiz__results-headline">Results</h1>
           <div>
-            You scored {result.correctAnswers}/{quizDataLength} correct answers
+            You scored {result.correctAnswers}/{quizDataLength} correct answers.
           </div>
           <button className="quiz__replay-button" onClick={playAgain}>
             Play again
