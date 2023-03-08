@@ -10,7 +10,7 @@ const QuizPage = () => {
   const fetchQuizData = (callback) => {
     axios
       .get(
-        "https://opentdb.com/api.php?amount=8&category=9&difficulty=medium&type=multiple"
+        "https://opentdb.com/api.php?amount=8&category=9&difficulty=easy&type=multiple"
       )
       .then((res) => {
         setQuizData(res.data.results);

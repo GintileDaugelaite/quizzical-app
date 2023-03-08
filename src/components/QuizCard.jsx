@@ -10,15 +10,18 @@ const QuizCard = ({
   quizDataLength,
   fetchQuizData,
 }) => {
-  const [selectedAnswer, setSelectedAnswer] = useState("");
+  const [selectedAnswer, setSelectedAnswer] = useState(false);
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
   const [showResult, setShowResult] = useState(false);
   const [result, setResult] = useState({ correctAnswers: 0 });
+  const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
+  const [answerDisabled, setAnswerDisabled] = useState(false);
 
   const allAnswers = [...incorrect_answers, correct_answer].sort();
 
   const onClickNext = () => {
-    setSelectedAnswerIndex(null);
+    setShowCorrectAnswer(true);
+    setAnswerDisabled(true);
     setResult((prevResult) =>
       selectedAnswer
         ? {
@@ -30,8 +33,15 @@ const QuizCard = ({
             correctAnswers: prevResult.correctAnswers,
           }
     );
+
     if (currentQuestionIndex !== quizDataLength - 1) {
-      setCurrentQuestionIndex((prevQuestion) => prevQuestion + 1);
+      setTimeout(() => {
+        setShowCorrectAnswer(false);
+        setAnswerDisabled(false);
+        setCurrentQuestionIndex((prevQuestion) => prevQuestion + 1);
+        setSelectedAnswer(false);
+        setSelectedAnswerIndex(null);
+      }, 1000);
     } else {
       setShowResult(true);
       setCurrentQuestionIndex(0);
@@ -41,7 +51,6 @@ const QuizCard = ({
   const handleSelect = (answer, index) => {
     //answer shows the selected answer (in text), index shows selected answer's index
     setSelectedAnswerIndex(index);
-
     if (answer === correct_answer) {
       setSelectedAnswer(true);
     } else {
@@ -55,6 +64,9 @@ const QuizCard = ({
       setSelectedAnswerIndex(null);
       setResult({ correctAnswers: 0 });
       setShowResult(false);
+
+      setShowCorrectAnswer(false);
+      setAnswerDisabled(false);
     });
   };
 
@@ -71,9 +83,22 @@ const QuizCard = ({
               <li
                 className={`quiz__answer ${
                   selectedAnswerIndex === i ? "quiz__answer-selected" : ""
-                }`}
+                }
+              ${
+                showCorrectAnswer &&
+                correct_answer === answer &&
+                "quiz__answer-correct"
+              }
+              ${
+                showCorrectAnswer &&
+                correct_answer !== answer &&
+                selectedAnswerIndex === i &&
+                "quiz__answer-incorrect"
+              }
+                `}
                 onClick={() => handleSelect(answer, i)}
                 key={answer}
+                disabled={answerDisabled}
               >
                 {/*this library is used to decode some of the symbols that are coming from API */}
                 {he.decode(answer)}
