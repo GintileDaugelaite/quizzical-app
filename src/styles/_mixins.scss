@@ -16,3 +16,32 @@
   justify-content: $justify-content;
   align-items: $align-items;
 }
+
+@mixin answer($background-color) {
+  background-color: $background-color;
+  border: $regular-border $light-blue;
+  font-family: $inter-font;
+  list-style-type: none;
+  margin: 3px;
+  padding: 5px 20px;
+  border-radius: $border-radius-10;
+  text-align: center;
+  cursor: pointer;
+}
+
+@mixin button($padding, $margin) {
+  background-color: $purple;
+  color: $lighter-blue;
+  border-radius: $border-radius-15;
+  font-family: $inter-font;
+  padding: $padding;
+  border: none;
+  font-weight: $font-weight-regular;
+  font-size: $font-size-regular;
+  cursor: pointer;
+  margin: $margin;
+
+  &:hover {
+    background-color: $navy-blue;
+  }
+}

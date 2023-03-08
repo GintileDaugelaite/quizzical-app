@@ -33,19 +33,18 @@ const QuizCard = ({
             correctAnswers: prevResult.correctAnswers,
           }
     );
-
-    if (currentQuestionIndex !== quizDataLength - 1) {
-      setTimeout(() => {
+    setTimeout(() => {
+      if (currentQuestionIndex !== quizDataLength - 1) {
         setShowCorrectAnswer(false);
         setAnswerDisabled(false);
         setCurrentQuestionIndex((prevQuestion) => prevQuestion + 1);
         setSelectedAnswer(false);
         setSelectedAnswerIndex(null);
-      }, 1000);
-    } else {
-      setShowResult(true);
-      setCurrentQuestionIndex(0);
-    }
+      } else {
+        setShowResult(true);
+        setCurrentQuestionIndex(0);
+      }
+    }, 1200);
   };
 
   const handleSelect = (answer, index) => {
@@ -84,6 +83,7 @@ const QuizCard = ({
                 className={`quiz__answer ${
                   selectedAnswerIndex === i ? "quiz__answer-selected" : ""
                 }
+                ${answerDisabled ? "quiz__answer--disabled" : ""}
               ${
                 showCorrectAnswer &&
                 correct_answer === answer &&
@@ -105,7 +105,12 @@ const QuizCard = ({
               </li>
             ))}
           </ul>
-          <button className="quiz__next-button" onClick={onClickNext}>
+          <button
+            className={`quiz__next-button ${
+              answerDisabled ? "quiz__next-button--disabled" : ""
+            }`}
+            onClick={onClickNext}
+          >
             {currentQuestionIndex === quizDataLength - 1 ? "Finish" : "Next"}
           </button>
         </>
