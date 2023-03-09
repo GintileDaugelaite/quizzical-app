@@ -111,14 +111,15 @@ const QuizCard = ({
             }`}
             onClick={onClickNext}
           >
-            {currentQuestionIndex === quizDataLength - 1 ? "Finish" : "Next"}
+            {currentQuestionIndex === quizDataLength - 1 ? "Finish" : "Select"}
           </button>
         </>
       ) : (
         <div className="quiz__results">
           <h1 className="quiz__results-headline">Results</h1>
           <div>
-            You scored {result.correctAnswers}/{quizDataLength} correct answers.
+            {result.correctAnswers} out of {quizDataLength} questions answered
+            correctly.
           </div>
           <button className="quiz__replay-button" onClick={playAgain}>
             Play again
